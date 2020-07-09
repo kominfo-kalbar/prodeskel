@@ -5,10 +5,10 @@ $dari_baris_ke = 0; //0
 $jumlah = 1000;     //200
 
 include ("../Sql_Class/db.php");
-$list_desa = $sql->query('SELECT * FROM produksi_budidaya_ikanairtawar LIMIT '.$dari_baris_ke.','.$jumlah.'')->fetchAll();
+$list_desa = $sql->query('SELECT * FROM nama_table LIMIT '.$dari_baris_ke.','.$jumlah.'')->fetchAll();
 $i=1;
 echo "
-<p><a href='../' class='text-bold'>home</a></p>
+<p><a href='../' class='text-bold'>Home</a></p>
 <p></p>
 <table>";
 foreach ($list_desa as $DS) {
@@ -29,15 +29,15 @@ foreach ($list_desa as $DS) {
     ";
 }
 echo "</table>
-<p><a href='../' class='text-bold'>home</a></p>";
+<p><a href='../' class='text-bold'>Home</a></p>";
 $sql->close();
 
 function desa_get_before($on, $type='kab'){
   global $sql2;
-  $gol = $sql2->query('SELECT '.$type.' FROM produksi_budidaya_ikanairtawar WHERE `no` = ?', $on-1)->fetchArray();
+  $gol = $sql2->query('SELECT '.$type.' FROM nama_table WHERE `no` = ?', $on-1)->fetchArray();
   //return $gol[$type];
   
-  $sql2->query('UPDATE produksi_budidaya_ikanairtawar SET `'.$type.'` = \''.$gol[$type].'\' WHERE `no` = \''.$on.'\'');
+  $sql2->query('UPDATE nama_table SET `'.$type.'` = \''.$gol[$type].'\' WHERE `no` = \''.$on.'\'');
   return $sql2->affectedRows();
 
   $sql2->close();
