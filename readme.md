@@ -11,7 +11,7 @@ Replace reg expression
    class="scGrid(?:.*)"
   ```
 
-- find (`regex`) clear tag `rowspan`
+- find (`regex`) clear tag `<rowspan>`
 
   ```sh
    [rowspan](?:.*)"
